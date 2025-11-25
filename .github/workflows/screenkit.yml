@@ -18,13 +18,13 @@ on:
           - espeak
           - eleven_labs
           - eleven_labs_mp3_192k
-      overwrite:
-        type: boolean
-        description: "Regenerate files"
       match:
         type: string
         description: "Match pattern for segments (e.g. 001)"
         default: ""
+      overwrite:
+        type: boolean
+        description: "Regenerate files"
 
 jobs:
   screenkit:
