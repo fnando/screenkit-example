@@ -8,11 +8,12 @@ on:
         type: string
         description: "Episode number (e.g. 001)"
         required: true
-      tts_preset_name:
+      tts_preset:
         description: "TTS preset name"
         default: ""
         type: choice
         options:
+          - ""
           - say
           - espeak
           - eleven_labs
@@ -34,10 +35,10 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Run Screenkit
-        uses: fnando/screenkit@2018734daadffbbfe64797889db59b0ab815f8fd
+        uses: fnando/screenkit@a670cdcf8b00a27d71c4fe89ca85902cd16556f1
         with:
           episode: ${{ github.event.inputs.episode }}
-          tts_preset_name: ${{ github.event.inputs.tts_preset_name }}
+          tts_preset: ${{ github.event.inputs.tts_preset }}
           tts_api_key: ${{ secrets.ELEVENLABS_API_KEY }}
           overwrite: ${{ github.event.inputs.overwrite }}
           match: ${{ github.event.inputs.match }}
