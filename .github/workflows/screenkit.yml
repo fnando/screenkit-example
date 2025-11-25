@@ -29,6 +29,9 @@ on:
 jobs:
   screenkit:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      actions: write
 
     steps:
       - name: Checkout repository
